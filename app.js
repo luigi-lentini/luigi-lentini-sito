@@ -1,3 +1,8 @@
+
+const CRM_PASSWORD='Lentini2024';
+function doLogin(){var p=document.getElementById('login-password').value;if(p===CRM_PASSWORD){document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='flex';sessionStorage.setItem('crm_auth','1');init();}else{document.getElementById('login-error').textContent='Password errata. Riprova.';document.getElementById('login-password').value='';}}
+function doLogout(){sessionStorage.removeItem('crm_auth');document.getElementById('app').style.display='none';document.getElementById('login-screen').style.display='flex';document.getElementById('login-password').value='';document.getElementById('login-error').textContent='';}
+window.addEventListener('load',function(){if(sessionStorage.getItem('crm_auth')==='1'){document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='flex';init();}});
 // CRM Lentini - JavaScript Completo
 let currentSection='panoramica';let data={clienti:[],prospect:[],attivita:[],appuntamenti:[],processi:[]};
 function load(){const s=localStorage.getItem('crmData');if(s)data=JSON.parse(s);}
